@@ -9,28 +9,24 @@ class App extends Component {
     };
   }
   componentDidMount() {
-    fetch('http://localhost:5000/mern')
+    fetch("http://localhost:5000/mern")
       .then(data => data.json())
-      .then(data => this.setState({ product: data }))
+      .then(data => this.setState({ product: data }));
   }
 
   render() {
     return (
       <div className="App">
+        <header className="App-header"></header>
+        <meta name="viewport" content="width=device-width, inital-scale= 1.0"></meta>
         {this.state.product.map(e => (
-          <div>
-            <h1>{e.name}</h1><button>Delete</button>
-            <h1>{e.price}</h1>
+          <div className="product">
+            <button>Delete</button>
             <img src={e.url} alt={e.url} />
+            <h2><span>{e.name}</span><br></br><span>{e.price}</span></h2>
           </div>
         ))}
-        <div>
-          <button>Create</button>
-          <button>Update</button>
-          <button>Read</button>
-        </div>
       </div>
-
     );
   }
 }

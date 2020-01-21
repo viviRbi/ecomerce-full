@@ -2,3 +2,27 @@
   text-align: center;
 }
 
+.App-header {
+  background-color: #282c34;
+  min-height: 10vh;
+}
+
+.product {
+  width: 30%;
+  margin: 2%;
+  display: inline-block;
+}
+
+.product img {
+  width: 90%;
+  display: inline-block;
+ 
+}
+
+.h2 {
+  font-size: 2vmin;
+}
+
+
+
+
