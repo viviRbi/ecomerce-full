@@ -42,9 +42,6 @@ class App extends Component {
           </div>
         ))}
         <div>
-          <button>Create</button>
-          <button>Update</button>
-          <button>Read</button>
         </div>
       </div>
     );
