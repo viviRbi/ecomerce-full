@@ -1,6 +1,7 @@
 .App {
   text-align: center;
 }
+<<<<<<< HEAD
 
 .App-header {
   background-color: #282c34;
@@ -26,3 +27,53 @@
 
 
 
+=======
+.none{
+  display: none;
+}
+.overlay{
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: block;
+}
+.overlay form{
+  position: fixed;
+  top: 20vh;
+  left: 10vw;
+  right: 10vw;
+  bottom: 20vh;
+  background: white;
+  text-align: center;
+}
+.overlay form div{
+  width: 100%;
+  margin: 20% auto;
+  text-align: center;
+}
+::placeholder{
+  color: grey;
+}
+.overlay form input{
+  position: relative;
+  color: black;
+  width: 50vw;
+  height: 7vh;
+  display: block;
+  font-size: 6vh;
+  margin: 3vmin auto;
+  box-shadow: 1px 1px 1px grey;
+}
+.overlay form .submit{
+  margin: 10vmin auto;
+  color: white;
+  background: blue;
+}
+.overlay form .submit:hover{
+  color: blue;
+  background: white;
+}
+>>>>>>> 3dda73e5fc1af7131afc43b454571649b14173f0
