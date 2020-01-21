@@ -1,0 +1,32 @@
+[
+    {
+        "name": "MacBook Air",
+        "price": "$3245",
+        "url": "https://static.trustedreviews.com/94/000038c9a/0434_orh500w750/macbook-12.jpg"
+    },
+    {
+        "name": "MacBook Pro",
+        "price": "$4245",
+        "url": "https://valuenomad.com/wp-content/uploads/2016/01/skylake_laptop_uk.jpg"
+    },
+    {
+        "name": "MacBook Air",
+        "price": "$1245",
+        "url": "https://www.lenovo.com/medias/lenovo-laptop-thinkpad-x395-hero.png?context=bWFzdGVyfHJvb3R8OTk2NDN8aW1hZ2UvcG5nfGg4NS9oY2EvOTk4Nzc3MzA3MTM5MC5wbmd8ZTY5NTY5NmFhNDQ3MDQ3ODgwYWJkNDk3OWQ4YmVkNWVhMjdjZGY0OThhODI4NjQ2NmEwYTE5YjRlMmEyNGM5Nw"
+    },
+    {
+        "name": "iMac",
+        "price": "$2245",
+        "url": "https://images.idgesg.net/images/article/2018/12/acerspin5heroalt2-100782294-large.3x2.jpg"
+    },
+    {
+        "name": "Mac Pro",
+        "price": "$1245",
+        "url": "https://www.geek.com/wp-content/uploads/2010/06/R700_R1300_OPEN_FRNT_LT.jpg"
+    },
+    {
+        "name": "Mac mini",
+        "price": "$750",
+        "url": "https://www.geek.com/wp-content/uploads/2010/06/R700_R1300_OPEN_FRNT_LT.jpg"
+    }
+]
