@@ -33,7 +33,17 @@ class App extends Component {
     const clicked = this.state.clicked
     const url = `http://localhost:5000/mern/${clicked}`
     console.log(url)
-
+    fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: this.state.productName,
+        price: this.state.productPride,
+        url: this.state.productUrl
+      })
+    }).then(res => res.json()).then(res => console.log(res))
     this.setState({ productName: "" })
     this.setState({ productPrice: "" })
     this.setState({ productUrl: "" })
@@ -42,9 +52,10 @@ class App extends Component {
 
   deleteHandle = (e) => {
     const clicked = e.target.attributes.getNamedItem('id').value
-    const url = `http://localhost:5000/mern/${clicked}`
-    console.log(url)
-
+    fetch(`http://localhost:5000/mern/${clicked}`, {
+      method: 'DELETE'
+    })
+      .then(res => res.json())
   }
   createHandle = () => {
     this.setState({ create: true })
@@ -85,26 +96,26 @@ class App extends Component {
       return (
         <div className="App">
 
-          {/* ------------------------- form for put/edit ------------------------- */}
+          {/* ------------------------- put/edit ------------------------- */}
           <div className={this.state.clicked ? "overlay" : "none"}>
             <form>
               <div>
                 <h2>Edit Product</h2><button className="x" onClick={e => this.escHandle(e)}>X</button>
                 <input type="text" placeholder="Name" required onChange={e => this.inputHandle(e)} />
-                <input type="number" placeholder="Price" required onChange={e => this.inputHandle(e)} />
+                <input type="text" placeholder="Price" required onChange={e => this.inputHandle(e)} />
                 <input type="text" placeholder="Url" required onChange={e => this.inputHandle(e)} />
                 <button className="submit" onClick={e => this.putSubmitHandle(e)}>Submit</button>
               </div>
             </form>
           </div>
 
-          {/* ------------------------- form for create ------------------------- */}
+          {/* ------------------------- create ------------------------- */}
           <div className={this.state.create ? "overlay" : "none"}>
             <form>
               <div>
                 <h2>Create</h2><button className="x" onClick={e => this.escHandle(e)}>X</button>
                 <input type="text" placeholder="Name" required onChange={e => this.inputHandle(e)} />
-                <input type="number" placeholder="Price" required onChange={e => this.inputHandle(e)} />
+                <input type="text" placeholder="Price" required onChange={e => this.inputHandle(e)} />
                 <input type="text" placeholder="Url" required onChange={e => this.inputHandle(e)} />
                 <button className="submit" onClick={e => this.submitHandle(e)}>Submit</button>
               </div>
