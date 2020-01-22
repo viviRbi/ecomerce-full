@@ -8,44 +8,87 @@
   position: fixed;
   top:0;
   left:0;
-  width: 100%;
-  height: 100%;
+  right:0;
+  bottom:0;
   background: black;
   display: block;
 }
 .overlay form{
-  position: fixed;
-  top: 20vh;
-  left: 10vw;
-  right: 10vw;
-  bottom: 20vh;
+  position: relative;
   background: white;
   text-align: center;
+  margin: 10vmin 10vmin 10vmin 10vmin;
+  border-radius: 10px;
 }
 .overlay form div{
   width: 100%;
-  margin: 20% auto;
+  height: 100%;
+  margin: 10vmin auto 20vmin auto;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 ::placeholder{
   color: grey;
+  text-align: center;
 }
 .overlay form input{
-  position: relative;
   color: black;
   width: 50vw;
-  height: 7vh;
+  height: 7vmin;
   display: block;
-  font-size: 6vh;
+  font-size: 6vmin;
   margin: 3vmin auto;
   box-shadow: 1px 1px 1px grey;
+  flex:1;
+  border-radius: 10px;
+}
+.overlay form h2{
+  font-size: 6vmin;
+  display: inline-block;
+  width: 50%;
+  margin: auto;
+}
+.overlay form .x{
+  display: inline-block;
+  position: absolute;
+  width: 7vmin;
+  height: 7vmin;
+  top: 0;
+  right:0;
+  border-radius: 10px;
+  background: blue;
+  color: white;
+  transition: 300ms ease-in;
+  -moz-transition: 300ms ease-in;
+  -webkit-transition: 300ms ease-in;
+  font-size: 5vmin;
+  line-height: 7vmin;
+  margin: 0;
+  padding:0;
+  outline: none;
+}
+.overlay form .x:hover{
+  background: white;
+  color: blue;
 }
 .overlay form .submit{
-  margin: 10vmin auto;
+  margin: 5vmin auto;
   color: white;
   background: blue;
+  transition: 300ms ease-in;
+  -moz-transition: 300ms ease-in;
+  -webkit-transition: 300ms ease-in;
+  width: 50vw;
+  height: 7vmin;
+  font-size: 6vmin;
+  line-height: 7vmin;
+  border-radius: 10px;
 }
 .overlay form .submit:hover{
   color: blue;
   background: white;
+
 }
+© 2020 GitHub, Inc.
