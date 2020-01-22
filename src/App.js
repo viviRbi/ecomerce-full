@@ -18,7 +18,7 @@ class App extends Component {
     const clicked = e.target.attributes.getNamedItem('id').value
     this.setState({ clicked })
   }
-
+  // have it change yet?
   render() {
     return (
       <div className="App">
