@@ -6,7 +6,7 @@ class App extends Component {
     super(props);
     this.state = {
       product: [],
-      clicked: '',
+      clicked: false,
       create: false,
       productName: '',
       productUrl: '',
@@ -23,9 +23,28 @@ class App extends Component {
       .then(data => data.json())
       .then(data => this.setState({ product: data }))
   }
-  clickHandle = (e) => {
+  putOnClickHandle = (e) => {
     const clicked = e.target.attributes.getNamedItem('id').value
-    this.setState({ clicked })
+    this.setState({ clicked: clicked })
+  }
+
+  putSubmitHandle = (e) => {
+    e.preventDefault()
+    const clicked = this.state.clicked
+    const url = `http://localhost:5000/mern/${clicked}`
+    console.log(url)
+
+    this.setState({ productName: "" })
+    this.setState({ productPrice: "" })
+    this.setState({ productUrl: "" })
+    this.setState({ clicked: false })
+  }
+
+  deleteHandle = (e) => {
+    const clicked = e.target.attributes.getNamedItem('id').value
+    const url = `http://localhost:5000/mern/${clicked}`
+    console.log(url)
+
   }
   createHandle = () => {
     this.setState({ create: true })
@@ -45,7 +64,9 @@ class App extends Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        name: this.state.productName, price: this.state.productPride, url: this.state.productUrl
+        name: this.state.productName,
+        price: this.state.productPride,
+        url: this.state.productUrl
       })
     })
 
@@ -57,15 +78,31 @@ class App extends Component {
   escHandle = (e) => {
     e.preventDefault()
     this.setState({ create: false })
+    this.setState({ clicked: false })
   }
   render() {
     if (this.state.product) {
       return (
         <div className="App">
+
+          {/* ------------------------- form for put/edit ------------------------- */}
+          <div className={this.state.clicked ? "overlay" : "none"}>
+            <form>
+              <div>
+                <h2>Edit Product</h2><button className="x" onClick={e => this.escHandle(e)}>X</button>
+                <input type="text" placeholder="Name" required onChange={e => this.inputHandle(e)} />
+                <input type="number" placeholder="Price" required onChange={e => this.inputHandle(e)} />
+                <input type="text" placeholder="Url" required onChange={e => this.inputHandle(e)} />
+                <button className="submit" onClick={e => this.putSubmitHandle(e)}>Submit</button>
+              </div>
+            </form>
+          </div>
+
+          {/* ------------------------- form for create ------------------------- */}
           <div className={this.state.create ? "overlay" : "none"}>
             <form>
               <div>
-                <h2>Create Product</h2><button className="x" onClick={e => this.escHandle(e)}>X</button>
+                <h2>Create</h2><button className="x" onClick={e => this.escHandle(e)}>X</button>
                 <input type="text" placeholder="Name" required onChange={e => this.inputHandle(e)} />
                 <input type="number" placeholder="Price" required onChange={e => this.inputHandle(e)} />
                 <input type="text" placeholder="Url" required onChange={e => this.inputHandle(e)} />
@@ -74,18 +111,20 @@ class App extends Component {
             </form>
           </div>
 
+          {/* --------------------- Product start here ---------------------------- */}
           <button onClick={this.createHandle}>Create</button>
           {this.state.product.map(e => (
-            <div key={e._id}>
-              <button>Delete</button>
-              <img src={e.url} alt={e.url} id={e._id} onClick={e => this.clickHandle(e)} />
+            <div key={e._id} >
+              <button id={e._id} onClick={e => this.deleteHandle(e)}>Delete</button>
+              <img src={e.url} alt={e.url} id={e._id} onClick={e => this.putOnClickHandle(e)} />
               <h1>{e.name}</h1>
               <h1>{e.price}</h1>
             </div>
-          ))}
+          ))
+          }
           <div>
           </div>
-        </div>
+        </div >
       );
     }
   }
