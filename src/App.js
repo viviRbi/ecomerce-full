@@ -18,7 +18,7 @@ class App extends Component {
     const clicked = e.target.attributes.getNamedItem('id').value
     this.setState({ clicked })
   }
-
+  //second backup
   render() {
     return (
       <div className="App">
