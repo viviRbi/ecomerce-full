@@ -123,17 +123,17 @@ class App extends Component {
           </div>
 
           {/* --------------------- Product start here ---------------------------- */}
-          <button onClick={this.createHandle}>Create</button>
-          {this.state.product.map(e => (
-            <div key={e._id} >
-              <button id={e._id} onClick={e => this.deleteHandle(e)}>Delete</button>
-              <img src={e.url} alt={e.url} id={e._id} onClick={e => this.putOnClickHandle(e)} />
-              <h1>{e.name}</h1>
-              <h1>{e.price}</h1>
-            </div>
-          ))
-          }
-          <div>
+          <button className='create' onClick={this.createHandle}>Create</button>
+          <div className="product">
+            {this.state.product.map(e => (
+              <div key={e._id} className="each">
+                <div className="img" style={{ backgroundImage: `url(${e.url})` }} alt={e.url} id={e._id} onClick={e => this.putOnClickHandle(e)} />
+                <h1>{e.name}</h1>
+                <h1>{e.price}</h1>
+                <button id={e._id} onClick={e => this.deleteHandle(e)}>Delete</button>
+              </div>
+            ))
+            }
           </div>
         </div >
       );
