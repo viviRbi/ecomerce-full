@@ -18,9 +18,17 @@ class App extends Component {
       .then(data => data.json())
       .then(data => this.setState({ product: data }))
   }
+  componentDidUpdate() {
+    fetch('http://localhost:5000/mern')
+      .then(data => data.json())
+      .then(data => this.setState({ product: data }))
+  }
   clickHandle = (e) => {
     const clicked = e.target.attributes.getNamedItem('id').value
     this.setState({ clicked })
+  }
+  createHandle = () => {
+    this.setState({ create: true })
   }
   inputHandle = (e) => {
     const result = e.target.value;
@@ -44,11 +52,11 @@ class App extends Component {
     this.setState({ productName: "" })
     this.setState({ productPrice: "" })
     this.setState({ productUrl: "" })
-    this.setState({ clicked: "" })
+    this.setState({ create: false })
   }
   escHandle = (e) => {
     e.preventDefault()
-    this.setState({ clicked: "" })
+    this.setState({ create: false })
   }
   render() {
     if (this.state.product) {
@@ -66,7 +74,7 @@ class App extends Component {
             </form>
           </div>
 
-          <button>Create</button>
+          <button onClick={this.createHandle}>Create</button>
           {this.state.product.map(e => (
             <div key={e._id}>
               <button>Delete</button>
