@@ -47,6 +47,31 @@
 .overlay form h2{
   font-size: 6vmin;
   display: inline-block;
+  width: 50%;
+  margin: auto;
+}
+.overlay form .x{
+  display: inline-block;
+  position: absolute;
+  width: 7vmin;
+  height: 7vmin;
+  top: 0;
+  right:0;
+  border-radius: 10px;
+  background: blue;
+  color: white;
+  transition: 300ms ease-in;
+  -moz-transition: 300ms ease-in;
+  -webkit-transition: 300ms ease-in;
+  font-size: 5vmin;
+  line-height: 7vmin;
+  margin: 0;
+  padding:0;
+  outline: none;
+}
+.overlay form .x:hover{
+  background: white;
+  color: blue;
 }
 .overlay form .submit{
   margin: 5vmin auto;
