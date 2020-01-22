@@ -25,10 +25,11 @@ class App extends Component {
         <div className={this.state.clicked ? "overlay" : "none"}>
           <form>
             <div>
+              <h2>Edit</h2>
               <input type="text" placeholder="Name" required />
               <input type="number" placeholder="Price" required />
               <input type="text" placeholder="Url" required />
-              <input type="submit" className="submit" />
+              <button className="submit">Submit</button>
             </div>
           </form>
         </div>
