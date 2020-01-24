@@ -40,7 +40,7 @@ class App extends Component {
       },
       body: JSON.stringify({
         name: this.state.productName,
-        price: this.state.productPride,
+        price: this.state.productPrice,
         url: this.state.productUrl
       })
     }).then(res => res.json()).then(res => console.log(res))
